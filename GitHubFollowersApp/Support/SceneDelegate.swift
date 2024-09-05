@@ -42,6 +42,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate
     func createTabBar() -> UITabBarController
     {
         let tabBar = UITabBarController()
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .systemBackground
+        UITabBar.appearance().standardAppearance = appearance
+        UITabBar.appearance().scrollEdgeAppearance = appearance
         UITabBar.appearance().tintColor = .systemGreen
         tabBar.viewControllers = [createSearchNC(), createFavoritesNC()]
         return tabBar
@@ -49,11 +54,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate
     
     func configureNavigationBar()
     {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .systemBackground
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
         UINavigationBar.appearance().tintColor = .systemGreen
     }
-
+    
+    
     func sceneDidDisconnect(_ scene: UIScene) {}
-  
+    
     func sceneDidBecomeActive(_ scene: UIScene) {}
    
     func sceneWillResignActive(_ scene: UIScene) {}
